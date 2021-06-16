@@ -29,9 +29,6 @@ function App() {
                 <Route path="/suggestions" exact>
                     <SuggestionsPage />
                 </Route>
-                <Route path="/forecast" exact>
-                    <ForecastPage />
-                </Route>
                 <Route path='*'>
                 {!authContext.isLoggedIn && (
                     <Redirect to='/auth' />
