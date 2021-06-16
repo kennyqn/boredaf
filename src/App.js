@@ -5,7 +5,6 @@ import ProfilePage from "./pages/ProfilePage";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import SuggestionsPage from "./pages/SuggestionsPage";
-import ForecastPage from "./pages/ForecastPage"
 import AuthContext from "./store/auth-context";
 
 function App() {
