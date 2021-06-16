@@ -14,80 +14,67 @@ const PreferenceForm = (props) => {
     const [timePreferences, setTimePreferences] = useState(props.time);
     const [isLoading, setIsLoading] = useState(false);
 
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
 
         const enteredMinTemp = minTempInputRef.current.value;
         const enteredMaxTemp = maxTempInputRef.current.value;
 
         setIsLoading(true);
-        let errorMessage = "Unable to save preferences.";
-        const url =
-            "https://activity-suggestion-app.herokuapp.com/preferences/" +
-            props.id;
-        fetch(url, {
-            method: "PATCH",
-            body: JSON.stringify({
-                minTemp: enteredMinTemp,
-                maxTemp: enteredMaxTemp,
-                time: timePreferences,
-                conditions: conditionPreferences,
-            }),
-            headers: {
-                Authorization: authContext.token,
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => {
-                setIsLoading(false);
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return res.json().then((data) => {
-                        if (data && data.error && data.error.message) {
-                            errorMessage = data.error.message;
-                            throw new Error(errorMessage);
-                        }
-                    });
-                }
-            })
-            .catch((err) => {
-                alert(errorMessage);
+        try {
+            let errorMessage = "Unable to save preferences.";
+            const url =
+                "https://activity-suggestion-app.herokuapp.com/preferences/" +
+                props.id;
+            const response = await fetch(url, {
+                method: "PATCH",
+                body: JSON.stringify({
+                    minTemp: enteredMinTemp,
+                    maxTemp: enteredMaxTemp,
+                    time: timePreferences,
+                    conditions: conditionPreferences,
+                }),
+                headers: {
+                    Authorization: authContext.token,
+                    "Content-Type": "application/json",
+                },
             });
+            if (!response.ok) {
+                throw new Error("Unable to save preferences");
+            }
+        } catch (e) {
+            alert(e);
+        }
         props.onClose();
+        setIsLoading(false);
+        window.location.reload();
     };
 
-    const deleteActivityHandler = () => {
+    const deleteActivityHandler = async () => {
         setIsLoading(true);
-        let errorMessage = "Unable to save preferences.";
-        const url =
-            "https://activity-suggestion-app.herokuapp.com/preferences/" +
-            props.id;
-        fetch(url, {
-            method: "DELETE",
-            headers: {
-                Authorization: authContext.token,
-            },
-        })
-            .then((res) => {
-                setIsLoading(false);
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return res.json().then((data) => {
-                        if (data && data.error && data.error.message) {
-                            errorMessage = data.error.message;
-                            throw new Error(errorMessage);
-                        }
-                    });
-                }
-            })
-            .catch((err) => {
-                alert(errorMessage);
+        try {
+            let errorMessage = "Unable to delete activity.";
+            const url =
+                "https://activity-suggestion-app.herokuapp.com/preferences/" +
+                props.id;
+            const response = await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    Authorization: authContext.token,
+                },
             });
+
+            if (!response.ok) {
+                throw new Error("Unable to delete activity");
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
         props.onClose();
+        setIsLoading(false);
         window.location.reload();
-    }
+    };
 
     const toggleMorning = () => {
         setTimePreferences({
@@ -291,11 +278,23 @@ const PreferenceForm = (props) => {
                     <button className={classes.control} onClick={props.onClose}>
                         Close
                     </button>
-                    <button className={classes.control} onClick={deleteActivityHandler}>
-                    Delete Activity
-                </button>
+                    <button
+                        className={classes.control}
+                        onClick={deleteActivityHandler}
+                    >
+                        Delete Activity
+                    </button>
                 </div>
-                <div className={classes.attribute}>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                <div className={classes.attribute}>
+                    Icons made by{" "}
+                    <a href="https://www.freepik.com" title="Freepik">
+                        Freepik
+                    </a>{" "}
+                    from{" "}
+                    <a href="https://www.flaticon.com/" title="Flaticon">
+                        www.flaticon.com
+                    </a>
+                </div>
             </section>
         );
     }

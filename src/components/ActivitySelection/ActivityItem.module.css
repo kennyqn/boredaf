@@ -2,25 +2,26 @@
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #91cfe2;
+    background-color: #91989b;
     border: 1px solid #91cfe2;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
     margin-bottom: 10px;
-    width: 600px;
+    width: 550px;
   }
   
 .activity div:hover {
-    background-color: rgb(68,132,180);
-    border-color: rgb(68,132,180);
+    background-color: #91cfe2;
 }
 
 .selectedActivity div {
+    width: 550px;
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: rgb(68,132,180);
-    border: 1px solid rgb(68,132,180);
+    transform:scale(1.01);
+    box-shadow:2px 2px 10px rgb(68, 153, 218);
+    background-color: #91cfe2;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
     margin-bottom: 10px;

@@ -1,6 +1,5 @@
 .selection {
     justify-content: center;
-    display: flex;
     left: 50%;
     right: 50%;
 }
@@ -16,11 +15,14 @@
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: rgb(68,132,180);
-    border: 1px solid #91cfe2;
+    background-color: rgb(88, 105, 119);
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
     margin-bottom: 10px;
+}
+
+.selection button:hover {
+    background-color: rgb(42, 45, 48);
 }
 
 .selection h1 {

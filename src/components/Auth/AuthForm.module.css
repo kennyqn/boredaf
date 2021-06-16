@@ -3,7 +3,7 @@
   width: 95%;
   max-width: 25rem;
   border-radius: 6px;
-  background: rgb(68,132,180);
+  background: rgb(68, 74, 78, 0.4);
   padding: 1rem;
   text-align: center;
   color: white;
@@ -11,6 +11,7 @@
 
 .auth h1 {
   text-align: center;
+  margin-right: 8%;;
   color: white;
 }
 
@@ -71,20 +72,24 @@
   color: white;
 }
 
-img.bg {
-    /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
-  
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-  
-    /* Set up positioning */
+.background_night {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgb(109,78,93);
+    background: linear-gradient(0deg, rgba(109,78,93,1) 0%, rgba(42,49,68,1) 54%, rgba(38,49,63,1) 100%);
     z-index: -1;
-  
-    opacity: 0.5;
-  }
+}
+
+.background_day {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgb(68,132,180);
+    background: linear-gradient(0deg, rgba(68,132,180,1) 0%, rgba(144,191,209,1) 48%, rgba(206,229,209,1) 100%);
+    z-index: -1;
+}

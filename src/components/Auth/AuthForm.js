@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
 import { useHistory } from "react-router-dom";
+import { TimeOfDay } from "../../utils/date";
 
 const AuthForm = () => {
     const emailInputRef = useRef();
@@ -23,13 +24,16 @@ const AuthForm = () => {
 
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
-        const enteredFullName = fullNameInputRef.current ? fullNameInputRef.current.value : '';
+        const enteredFullName = fullNameInputRef.current
+            ? fullNameInputRef.current.value
+            : "";
 
         // optional: Add validation
 
         setIsLoading(true);
         let url;
-        let errorMessage = "Authentication failed! Please check your login credentials.";
+        let errorMessage =
+            "Authentication failed! Please check your login credentials.";
         if (isLogin) {
             url = "https://activity-suggestion-app.herokuapp.com/users/login";
         } else {
@@ -61,7 +65,7 @@ const AuthForm = () => {
             })
             .then((data) => {
                 const expirationTime = new Date(
-                    new Date().getTime() + (365 * 86400000) // expiry time of jwt = 365d
+                    new Date().getTime() + 365 * 86400000 // expiry time of jwt = 365d
                 );
                 authContext.login(data.token, expirationTime.toISOString());
                 history.replace("/");
@@ -73,57 +77,67 @@ const AuthForm = () => {
 
     return (
         <div>
-        <section className={classes.auth}>
-        <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-        <form onSubmit={submitHandler}>
-            {!isLogin && (
-                <div className={classes.control}>
-                    <label htmlFor="name">Full Name</label>
-                    <input
-                        type="name"
-                        id="name"
-                        required
-                        ref={fullNameInputRef}
-                    />
-                </div>
-            )}
-            <div className={classes.control}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    required
-                    ref={emailInputRef}
-                />
-            </div>
-            <div className={classes.control}>
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    required
-                    ref={passwordInputRef}
-                />
-            </div>
-            <div className={classes.actions}>
-                {!isLoading && (
-                    <button>{isLogin ? "Login" : "Create Account"}</button>
-                )}
-                {isLoading && <p className="auth">Loading Request...</p>}
-                <button
-                    type="button"
-                    className={classes.toggle}
-                    onClick={switchAuthModeHandler}
-                >
-                    {isLogin
-                        ? "Create new account"
-                        : "Login with existing account"}
-                </button>
-            </div>
-        </form>
-    </section>
+            <div
+                className={
+                    TimeOfDay() !== "Evening"
+                        ? classes.background_day
+                        : classes.background_night
+                }
+            ></div>
+            <section className={classes.auth}>
+                <h1>{isLogin ? "Login" : "Sign Up"}</h1>
+                <form onSubmit={submitHandler}>
+                    {!isLogin && (
+                        <div className={classes.control}>
+                            <label htmlFor="name">Full Name</label>
+                            <input
+                                type="name"
+                                id="name"
+                                required
+                                ref={fullNameInputRef}
+                            />
+                        </div>
+                    )}
+                    <div className={classes.control}>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            ref={emailInputRef}
+                        />
+                    </div>
+                    <div className={classes.control}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            required
+                            ref={passwordInputRef}
+                        />
+                    </div>
+                    <div className={classes.actions}>
+                        {!isLoading && (
+                            <button>
+                                {isLogin ? "Login" : "Create Account"}
+                            </button>
+                        )}
+                        {isLoading && (
+                            <p className="auth">Loading Request...</p>
+                        )}
+                        <button
+                            type="button"
+                            className={classes.toggle}
+                            onClick={switchAuthModeHandler}
+                        >
+                            {isLogin
+                                ? "Create new account"
+                                : "Login with existing account"}
+                        </button>
+                    </div>
+                </form>
+            </section>
         </div>
-
     );
 };
 
