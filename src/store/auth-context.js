@@ -66,7 +66,7 @@ export const AuthContextProvider = (props) => {
         localStorage.setItem("token", token);
         localStorage.setItem("expirationTime", expirationTime);
         const location = localStorage.getItem("location");
-        if (!location) {
+        if (location === "null") {
             localStorage.setItem("location", "Los Angeles, CA,USA")
         }
         const remainingTime = calculateRemainingTime(expirationTime);
