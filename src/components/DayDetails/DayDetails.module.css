@@ -8,16 +8,12 @@
 
 .detail_day div {
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
     background: rgb(68,132,180);
     background: linear-gradient(0deg, rgba(68,132,180,1) 0%, rgba(144,191,209,1) 48%, rgba(206,229,209,1) 100%);
 }
 
 .detail_night div {
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
     background: rgb(109,78,93);
     background: linear-gradient(0deg, rgba(109,78,93,1) 0%, rgba(42,49,68,1) 54%, rgba(38,49,63,1) 100%);
 }
@@ -35,6 +31,7 @@
     Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 100;
     font-size: 30px;
+    margin: 20px;
 }
 
 .detail_night p {
@@ -43,6 +40,7 @@
     Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 100;
     font-size: 30px;
+    margin: 20px;
 }
 
 .suggestions  {

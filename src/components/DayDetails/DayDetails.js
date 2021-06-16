@@ -159,10 +159,6 @@ const DayDetails = () => {
                                         {weather.currentTemp}° F
                                     </p>
                                 )}
-                                <p>
-                                    H: {weather.maxTemp}° L: {weather.minTemp}°
-                                </p>
-                                <p>Morning: {weather.morningAvgTemp}° Afternoon: {weather.afternoonAvgTemp}° Evening: {weather.eveningAvgTemp}°</p>
                                 {weather.weatherConditions.map((condition) => {
                                     return (
                                         <p key={condition.main}>
@@ -171,6 +167,11 @@ const DayDetails = () => {
                                         </p>
                                     );
                                 })}
+                                <p>
+                                    H: {weather.maxTemp}° L: {weather.minTemp}°
+                                </p>
+                                <p style={{ fontSize: "15px" }}>Morning: {weather.morningAvgTemp}° Afternoon: {weather.afternoonAvgTemp}° Evening: {weather.eveningAvgTemp}°</p>
+
                             </React.Fragment>
                         )}
                     </div>
@@ -292,6 +293,7 @@ const DayDetails = () => {
                         </Card>
                     )}
                 </div>
+                <br />
             </React.Fragment>
         );
     }

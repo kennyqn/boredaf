@@ -114,6 +114,7 @@ const AuthForm = () => {
                             id="password"
                             required
                             ref={passwordInputRef}
+                            minLength="7"
                         />
                     </div>
                     <div className={classes.actions}>

@@ -7,7 +7,7 @@
 .selection ul {
     overflow:hidden;
     overflow-y:scroll;
-    height:600px;
+    height: 45vh;
     width: 95%;
 }
 
