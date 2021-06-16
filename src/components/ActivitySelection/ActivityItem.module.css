@@ -1,0 +1,27 @@
+.activity div {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: #91cfe2;
+    border: 1px solid #91cfe2;
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+    margin-bottom: 10px;
+    width: 600px;
+  }
+  
+.activity div:hover {
+    background-color: rgb(68,132,180);
+    border-color: rgb(68,132,180);
+}
+
+.selectedActivity div {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: rgb(68,132,180);
+    border: 1px solid rgb(68,132,180);
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+    margin-bottom: 10px;
+  }

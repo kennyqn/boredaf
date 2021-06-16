@@ -1,0 +1,45 @@
+.day img {
+    width: 40px;
+    height: 40px;
+}
+
+.day div {
+    width: 42px;
+    height: 80px;
+}
+
+.day {
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.day p {
+    color: black;
+}
+
+.day:hover {
+    transform: scale(1.02);
+}
+
+.day_selected {
+    background-color: rgb(182, 178, 178, 0.6);
+}
+
+.day_selected img {
+    width: 40px;
+    height: 40px;
+}
+
+.day_selected div {
+    width: 42px;
+    height: 80px;
+}
+
+.day_selected {
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.day_selected p {
+    color: black;
+}

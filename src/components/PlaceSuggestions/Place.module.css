@@ -1,0 +1,35 @@
+.place div {
+    width: 20vw;
+    height: 400px;
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.5rem 2.5rem;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-repeat: no-repeat;
+    background-size: 400px 400px;
+    background: rgb(74,84,85, 0.3);
+    float: left;
+    border-radius: 25px;
+    padding: 0.5rem 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.place img {
+    margin-top: 10px;
+    border-radius: 25px;
+    width: 13vw;
+    height: 11vw;
+
+}
+
+.place h1 {
+    font-size: 20px;
+    color: white;
+}
+
+.place:hover {
+    transform: scale(1.01);
+}
+

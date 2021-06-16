@@ -1,0 +1,70 @@
+.child {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 160px;
+}
+
+.temp {
+    width: 30%;
+}
+
+.temp img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.notSelectedImg {
+    cursor: pointer;
+    border-radius: 25px;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.selectedImg {
+    cursor: pointer;
+    border-radius: 25px;
+    width: 100px;
+    height: 100px;
+    transform:scale(1.2);
+    box-shadow:2px 2px 10px rgb(68,132,180);
+    margin-left: 50px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.control {
+    font: inherit;
+    background-color: rgb(68,132,180);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 25px;
+    border-color: white;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+}
+  
+  
+.control:hover {
+      background-color: #91cfe2;
+      color: white;
+}
+
+.caption {
+    display: block;
+}
+
+.attribute {
+    font-size: xx-small;
+    float: right;
+}

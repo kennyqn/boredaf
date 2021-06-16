@@ -1,0 +1,17 @@
+.navigation_night div {
+    float: left;
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.navigation_night img, p {
+    filter: invert(100%);
+}
+
+.navigation_day div {
+    float: left;
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+}

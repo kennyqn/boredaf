@@ -1,0 +1,29 @@
+.selection {
+    justify-content: center;
+    display: flex;
+    left: 50%;
+    right: 50%;
+}
+
+.selection ul {
+    overflow:hidden;
+    overflow-y:scroll;
+    height:600px;
+    width: 95%;
+}
+
+.selection button {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: rgb(68,132,180);
+    border: 1px solid #91cfe2;
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+    margin-bottom: 10px;
+}
+
+.selection h1 {
+    text-align: center;
+    margin-right: 60px;
+}
